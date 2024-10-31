@@ -34,5 +34,18 @@ pipeline {
         sh 'npm -v'
       }
     }
+
+    stage('Stage-4-Cowsay') {
+      agent {
+        dockerfile {
+          filename 'Dockerfile.cowsay'
+        }
+      }
+      steps {
+        sh 'node -v'
+        sh 'npm -v'
+        sh 'cowsay -f dragon Testing Jenkins Agent using Docker Containers'
+      }
+    }
   }
 }
