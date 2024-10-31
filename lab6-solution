@@ -21,5 +21,18 @@ pipeline {
         sh 'npm -v'
       }
     }
+
+    stage('Stage-3') {
+      agent {
+        docker {
+          image 'node:18-alpine'
+        }
+      }
+      steps {
+        sh 'cat /etc/os-release'
+        sh 'node -v'
+        sh 'npm -v'
+      }
+    }
   }
 }
